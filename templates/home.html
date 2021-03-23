@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Fintech
+{% endblock %}
+
+{% block main %}
+    <div style="margin: auto; height: 200px; text-align: center">
+        <h1 id="home" style="font-size: 65px; margin-top: 100px">A NEW DIGITAL BANK</h1>
+    </div>
+    <div class="home-home">
+        <div style="float: left; width: 30%;">
+            <img src="/static/cel.png" alt="APP" onclick="Show()">
+        </div>
+        <div class="home-top" style="float: right; width: 70%">
+            <h1 id="app"></h1>
+        </div>
+    </div>
+    <div style="height: 500px; box-shadow: 0px 2px 2px #000000, 0px -2px 2px #000000; background-color: #4483ff">
+        <h1 id="credit" class="home-credit">CREDIT</h1>
+        <div class="home-content" style="float: left; width: 40%;">
+            <img src=/static/credit_card.jpg style="text-align: center; box-shadow: 0.5px 0.5px 0.5px #000000">
+        </div>
+        <div class="home-content" style="float: right; width: 57%;">
+            <h2 class="credit-text">A card free of taxes</h2>
+            <h2 class="credit-text">The lower fees in Brazil</h2>
+            <h2 class="credit-text">CASHBACK in your purchasing</h2>
+        </div>
+    </div>
+    <div style="margin: auto; margin-top: 20px; height: 500px; background-color: #ffffff">
+        <h1 id="aboutus" style="font-size: 50px; text-align: center">ABOUT US</h1>
+        <div style="margin-top: 25px">
+            <h2 class="home-aboutus">
+            We love technology and want to change
+            the bank system in Brazil with more technology,
+            news features and improvements, focused on our clients.</h2>
+        </div>
+    </div>
+    <div style="margin: auto; margin-top: 20px; height: 500px; box-shadow: 0px 2px 2px #000000, 0px -2px 2px #000000; background-color: #4483ff">
+        <h1 id="carrer" class="home-credit">CARRER</h1>
+        <div style="margin-top: 25px">
+            <div style="float: left; width: 40%; margin-left: 10px">
+                <img src="/static/carrer.jpg">
+            </div>
+            <div style="float: right; width: 40%; margin-right: 50px; margin-top: 70px">
+                <h2 class="credit-text">If you like a challenging environment, love technology and is analytic person, this is for you!</h2>
+            </div>
+        </div>
+    </div>
+    <div style="margin-top: 15px">
+        <div style="float: right; width: 17%">
+            <p style="color: black">Designed by: Eduardo Penteado</p>
+        </div>
+    </div>
+<script>
+
+
+    function Show() {
+        var p = document.querySelector("#app");
+        p.innerHTML = String("USE IN THE CONFORT OF YOUR HOUSE");
+}
+
+
+</script>
+{% endblock %}

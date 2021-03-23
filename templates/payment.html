@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Deposit
+{% endblock %}
+
+{% block main %}
+    <div class="account-buttons" style="float: left">
+        <form method="post">
+            <button type="submit" name="submit" value="back" class="acc-button btn btn-primary btn-lg btn-block">Back</button>
+        </form>
+    </div>
+    <div class='account-content' style="float: right; height: auto">
+        <h2 class='account-hi' style="text-align: center">Payment</h2>
+        <form class="row g-1 needs-validation" novalidate method="post">
+            <div style="margin-top: 20px; margin-left: 30px; width: 80%; height: auto">
+                <div class="form-group position-relative">
+                    <label class="log-label payment-label">Bill of Pay</label>
+                    <input autocomplete='off' autofocus id='pay_input' type="text" class="form-control"  name="bill"  placeholder="Enter the numbers in the Bill" required>
+                    <div id="valid_pay" class="invalid-tooltip">
+                        <p>Enter the numbers</p>
+                    </div>
+                </div>
+            </div>
+            <div class="log-button" style="margin-top: 55px">
+                <button type="submit" name="submit" value="next" class="btn btn-light btn-lg">Next</button>
+            </div>
+        </form>
+    </div>
+<script>
+
+    (function () {
+          'use strict'
+//111111111111111111111111111111111111111111111111
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.querySelectorAll('.needs-validation')
+
+          // Loop over them and prevent submission
+          Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+              form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                  event.preventDefault()
+                  event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+              }, false)
+            })
+        })()
+
+
+    window.onload = function() {
+        document.getElementById("pay_input").onchange = validateInput;
+    }
+
+
+    function validateInput() {
+        var input = document.getElementById("pay_input").value;
+
+        if (input.length != 48) {
+            document.getElementById("pay_input").setCustomValidity("Invalid Bill");
+            var p = document.querySelector("#valid_pay");
+            p.innerHTML = String("Invalid Bill");
+        }
+        else {
+            if ( /[^0-9]/.test(input) ) {
+                document.getElementById("pay_input").setCustomValidity("Invalid Bill");
+                var p = document.querySelector("#valid_pay");
+                p.innerHTML = String("Insert only numbers!");
+            }
+            else {
+                document.getElementById("pay_input").setCustomValidity("");
+            }
+        }
+
+    }
+
+</script>
+{% endblock %}

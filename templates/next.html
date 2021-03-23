@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Payment
+{% endblock %}
+
+{% block main %}
+    <div class="account-buttons" style="float: left">
+        <form method="post">
+            <button type="submit" name="submit" value="back" class="acc-button btn btn-primary btn-lg btn-block">Back</button>
+        </form>
+    </div>
+    <div class='account-content' style="float: right;">
+        <h2 class='account-hi' style="text-align: center">Payment</h2>
+        <form action="", method='post'>
+            <div style="margin-top: 20px; width: auto; height: auto">
+                <div class="form-group">
+                    <label class="log-label payment-label" style="margin-left: 20px">Bill numbers</label>
+                    <label class="log-label payment-next-label" style="width: 90%; height: 50px">{{ bill[0] }}</label>
+                </div>
+                <div class="form-group">
+                    <div style="float: left; width: 50%">
+                        <label class="log-label payment-label" style="margin-left: 20px">Bank</label>
+                        <label class="log-label payment-next-label" style="width: 50%">{{ bill[1] }}</label>
+                    </div>
+                    <div style="float: right; width: 50%">
+                        <label class="log-label payment-label" style="margin-left: 100px">Value</label>
+                        <label class="log-label payment-next-label" value="cash" style="width: 50%; margin-left: 100px">$ {{ bill[2] }}</label>
+                    </div>
+                </div>
+                <div class="form-group" style="margin-top: 120px">
+                    <label class='log-label payment-label' style="margin-left: 180px">Card Password</label>
+                    <input autocomplete="off" autofocus class="trans-input" name="pass" type='password' placeholder="Enter 4-digit password">
+                </div>
+                <div class="log-button" style="margin-top: 10px">
+                    <button type="submit" name="submit" value="pay" class="btn btn-light btn-lg">Pay</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Transfer
+{% endblock %}
+
+{% block main %}
+    <div class="account-buttons" style="float: left">
+        <form method="post">
+            <button type="submit" name="submit" value="back" class="acc-button btn btn-primary btn-lg btn-block">Back</button>
+        </form>
+    </div>
+    <div class='account-content' style="float: right">
+        <h2 class="account-hi" style="text-align: center">Transfer</h2>
+            <form action="" method="post">
+                <div style="margin-top: 20px; width: auto; height: auto">
+                    <div style="width: 100%; height: 100px">
+                        <div class="form-group" style="float: left; width: 30%">
+                            <label class="log-label transfer-label" style="margin-right: 90px">ID</label>
+                            <h4 class="transfer-box">{{ session.transferlogin }}</h4>
+                        </div>
+                        <div class="form-group" style="float: right; width: 70%">
+                            <label class="log-label transfer-label" style="margin-right: 235px">Name</label>
+                            <h4 class="transfer-box" style="margin-right: 300px; font-size: 30px">{{ session.transferfirst }} {{session.transferlast }}</h4>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="log-label transfer-label">Amount</label>
+                        <input autocomplete="off" autofocus class="trans-input" name="amount" type="text" placeholder="Enter amount to transfer">
+                    </div>
+                    <div class="form-group">
+                        <label class="log-label transfer-label">Password</label>
+                        <input autocomplete="off" autofocus class="trans-input" name="pass" type='password' placeholder="Enter 4-digit password">
+                    </div>
+                    <div class="log-button">
+                        <button type="submit" name="submit" value="transfer" class="btn btn-light btn-lg">Transfer</button>
+                    </div>
+                </div>
+            </form>
+    </div>
+{% endblock %}

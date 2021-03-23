@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Forget
+{% endblock %}
+
+{% block main %}
+    <form method="post">
+        <div class="login-card" style="height: auto">
+            <h3>Recover Password</h2>
+            <div class="form-group">
+                <label class=log-label>Email</label>
+                <input autocomplete="off" autofocus name="email" type="email" placeholder="Enter email" style="width: 80%">
+            </div>
+            <div class="log-button">
+                <button type="submit" class="btn btn-light btn-lg">Send</button>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}

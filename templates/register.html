@@ -1,0 +1,204 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+<form class="row g-3 needs-validation" novalidate method="post">
+    <div class="register-card">
+        <h3>Create online banking account</h3>
+        <div style="height: 100px">
+            <div class="form-group position-relative" style="width: 45%; float: left">
+                <label class="log-label">First Name</label>
+                <input autocomplete="off" autofocus id="firstname" type="text" class="form-control" name="firstname" placeholder="First Name" required>
+                <div id='valid_firstname' class="invalid-tooltip">
+                    <p>Insert your name</p>
+                </div>
+            </div>
+            <div class="form-group position-relative" style="width: 45%; float: right">
+                <label class="log-label">Last Name</label>
+                <input autocomplete="off" autofocus id="lastname" type="text" class="form-control" name="lastname" placeholder="Last Name" required>
+                <div id='valid_lastname' class="invalid-tooltip">
+                    <p>Insert your lastname</p>
+                </div>
+            </div>
+        </div>
+        <div class="form-group position-relative">
+            <label class="log-label">ID</label>
+            <input autocomplete="off" autofocus id="ID" type="text" class="form-control" name="ID" placeholder="Enter ID" required>
+            <div id="valid_ID" class="invalid-tooltip">
+                <p>Insert an ID</p>
+            </div>
+        </div>
+        <div class="form-group position-relative">
+            <label class="log-label">Email</label>
+            <input autocomplete="off" autofocus id="email" type="email" class="form-control" name="email" placeholder="Enter email" required>
+            <div class="invalid-tooltip">
+                <p>Insert an email</p>
+            </div>
+        </div>
+        <div style="height: 80px">
+            <div class="form-group position-relative" style="width: 45%; float: left">
+                <label class="log-label">Password</label>
+                <input autocomplete="off" autofocus id="password1" type="password" class="form-control" name="password" placeholder="Enter password" required>
+                <div id="valid_pass" class="invalid-tooltip">
+                    <p>Insert the password</p>
+                </div>
+            </div>
+            <div class="form-group position-relative" style="width: 45%; float: right">
+                <label class="log-label">Confirm Password</label>
+                <input autocomplete="off" autofocus id="password2" type="password" class="form-control" name="c-password" placeholder="Confirm password" required>
+                <div id='valid_cpass' class="invalid-tooltip">
+                    <p>Insert the password</p>
+                </div>
+            </div>
+        </div>
+        <div style="height: 80px">
+            <div class="form-group position-relative">
+                <label class="log-label">Phone Number</label>
+                <input autocomplete="off" autofocus id="phone" type="tel" class="form-control" name="phone" placeholder="Only the numbers" required>
+                <div id="valid_phone" class="invalid-tooltip">
+                    <p>Insert the phone</p>
+                </div>
+            </div>
+        </div>
+        <div class="log-button" style="height: 100px; margin-top: 10px">
+            <button type="submit" class="btn btn-light btn-lg">Register</button>
+        </div>
+    </div>
+</form>
+<script>
+
+    (function () {
+          'use strict'
+
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.querySelectorAll('.needs-validation')
+
+          // Loop over them and prevent submission
+          Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+              form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                  event.preventDefault()
+                  event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+              }, false)
+            })
+        })()
+
+    window.onload = function(){
+        document.getElementById('firstname').onchange = validateFName;
+        document.getElementById('lastname').onchange = validateLName;
+        document.getElementById("ID").onchange = validateID;
+        document.getElementById('password1').onchange = validatePassword;
+        document.getElementById("password2").onchange = validatePassword;
+        document.getElementById("phone").onchange = validatePhone;
+
+
+    }
+
+    function validateFName(){
+        var firstname = document.getElementById('firstname').value;
+
+        if ( /[^a-zA-Z]/.test(firstname) ) {
+            document.getElementById("firstname").setCustomValidity("Invalid name")
+            var p = document.querySelector("#valid_firstname");
+            p.innerHTML = String("Check your name inserted");
+            }
+        else{
+            document.getElementById("firstname").setCustomValidity("");
+        }
+    }
+
+    function validateLName(){
+        var lastname = document.getElementById('lastname').value;
+
+        if (/[^a-zA-Z]/.test(lastname) ) {
+            document.getElementById("lastname").setCustomValidity("Invalid name")
+            var p = document.querySelector("#valid_lastname");
+            p.innerHTML = String("Check your name inserted");
+            }
+        else{
+            document.getElementById("lastname").setCustomValidity("")
+        }
+    }
+
+    function validateID(){
+        var ID = document.getElementById("ID").value;
+
+        if (ID.length != 11) {
+            document.getElementById("ID").setCustomValidity("Invalid ID");
+            var p = document.querySelector("#valid_ID");
+            p.innerHTML = String("ID must be 11 numbers");
+        }
+        else {
+
+            if ( /[^0-9]/.test(ID) ) {
+                document.getElementById("ID").setCustomValidity("Invalid ID")
+                var p = document.querySelector("#valid_ID");
+                p.innerHTML = String("Insert only digits");
+                }
+            else
+            document.getElementById("ID").setCustomValidity("");
+         }
+    }
+
+
+    function validatePassword() {
+        var pass2 = document.getElementById("password2").value;
+        var pass1 = document.getElementById("password1").value;
+
+        if (pass1.length < 8 || pass1.length > 20)
+        {
+            document.getElementById('password1').setCustomValidity("Invalid password");
+            var p = document.querySelector("#valid_pass");
+            p.innerHTML = String(" Invalid password (8-20 length and at least one letter)");
+        }
+
+        else{
+            if (/[^a-zA-Z0-9]/.test(pass1) ) {
+                var p = document.querySelector("#valid_pass");
+                p.innerHTML = String(" Invalid password (invalid characters)");
+                }
+
+            else{
+                document.getElementById('password1').setCustomValidity("");
+            }
+        }
+
+        if (pass2 != pass1) {
+            document.getElementById('password2').setCustomValidity("Password don't match");
+            var p = document.querySelector("#valid_cpass");
+            p.innerHTML = String("Password don't match");
+            }
+
+        else
+            document.getElementById("password2").setCustomValidity("");
+    }
+
+    function validatePhone() {
+        var phone = document.getElementById("phone").value
+
+        if (phone.length < 7 || phone.length > 15) {
+            document.getElementById("phone").setCustomValidity("Invalid ID")
+            var p = document.querySelector("#valid_phone");
+            p.innerHTML = String("Invalid phone");
+        }
+
+        else {
+            if ( /[^0-9]/.test(phone) ) {
+                document.getElementById("phone").setCustomValidity("Invalid phone")
+                    var p = document.querySelector("#valid_phone");
+                    p.innerHTML = String("Insert only digits");
+                    }
+            else
+                document.getElementById("phone").setCustomValidity("");
+            }
+    }
+
+</script>
+{% endblock %}

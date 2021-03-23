@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    CASH
+{% endblock %}
+
+{% block main %}
+
+    <div class="account-buttons" style="float: left">
+        <form method="post">
+            <button type="submit" name="submit" value="back" class="acc-button btn btn-primary btn-lg btn-block">Back</button>
+        </form>
+    </div>
+    <div class='account-content' style="float: right; height: auto">
+        <h2 class="account-hi" style="text-align: center">ADD CASH</h2>
+        <form action="" method="post">
+            <div style="margin-top: 20px; width: auto; height: auto">
+                <div class="form-group">
+                    <label class="log-label transfer-label">Amount</label>
+                    <input autocomplete="off" autofocus class="trans-input" name="cash" type="text" placeholder="Enter cash amount to add" required>
+                </div>
+            </div>
+            <div class="log-button">
+                <button type="submit" name="submit" value="cash" class="btn btn-light btn-lg">Add</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

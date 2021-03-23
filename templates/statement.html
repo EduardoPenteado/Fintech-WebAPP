@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Statement
+{% endblock %}
+
+{% block main %}
+
+    <div class="account-buttons" style="float: left">
+        <form method="post">
+            <button type="submit" name="submit" value="back" class="acc-button btn btn-primary btn-lg btn-block">Back</button>
+        </form>
+    </div>
+    <div class='account-content' style="float: right; height: auto">
+        <h2 class="account-hi" style="text-align: center">Statement</h2>
+        <div style="height: 50px">
+            <div style="float: left; width: 20%">
+                <h4 class="title-statement">Type</h4>
+            </div>
+            <div style="float: left; width: 50%";>
+                <h4 class="title-statement">Date</h4>
+            </div>
+            <div style="float: right; width: 20%; margin-right: 60px">
+                <h4 class="title-statement">Value</h4>
+            </div>
+        </div>
+        <div>
+            {% for operation in operations %}
+                <div class="statement" style="float: left; width: 50%">
+                    <h4 style="padding: 5px">{{ operation[0] }}: {{ operation[1] }}</h4>
+                </div>
+                <div class="statement" style="float: right; width: 31%">
+                    <h4 style="text-align: center; padding: 5px">$ {{ operation[2] }}</h4>
+                </div>
+             {% endfor %}
+         </div>
+         <div style='margin-top: 50px; float: right; width: 30%'>
+             <h4 class="title-statement">Total: $ {{ sum_op }}</h4>
+         </div>
+     </div>
+
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ session.lastname }}
+{% endblock %}
+
+{% block main %}
+
+    <div class="account-buttons" style="float: left">
+        <form method="post">
+            <button type="submit" name="submit" value="back" class="acc-button btn btn-primary btn-lg btn-block">Back</button>
+        </form>
+    </div>
+    <div class='account-content' style="float: right; height: auto">
+        <h2 class="account-hi" style="text-align: center">Transfer</h2>
+            <form class="row g-3 needs-validation" novalidate method="post">
+                <div style="width: 50%; margin: auto">
+                    <div class="form-group position-relative">
+                        <label class="log-label transfer-label" style="margin-left: 0px">ID</label>
+                        <input autocomplete="off" autofocus id="ID" class="form-control" name="ID" type="text" placeholder="Enter ID to transfer">
+                        <div id="valid_ID" class="invalid-tooltip">
+                            <p>Insert an ID</p>
+                        </div>
+                    </div>
+                    <div class="log-button">
+                        <button type="submit" name="submit" value="next" class="btn btn-light btn-lg">Next</button>
+                    </div>
+                </div>
+            </form>
+    </div>
+<script>
+
+    (function () {
+          'use strict'
+
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.querySelectorAll('.needs-validation')
+
+          // Loop over them and prevent submission
+          Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+              form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                  event.preventDefault()
+                  event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+              }, false)
+            })
+        })()
+
+        window.onload = function() {
+            document.getElementById("ID").onchange = validateID
+        }
+
+
+        function validateID(){
+        var ID = document.getElementById("ID").value;
+
+        if (ID.length != 11) {
+            document.getElementById("ID").setCustomValidity("Invalid ID");
+            var p = document.querySelector("#valid_ID");
+            p.innerHTML = String("ID must be 11 numbers");
+        }
+        else {
+
+            if ( /[^0-9]/.test(ID) ) {
+                document.getElementById("ID").setCustomValidity("Invalid ID")
+                var p = document.querySelector("#valid_ID");
+                p.innerHTML = String("Insert only digits");
+                }
+            else{
+                document.getElementById("ID").setCustomValidity("");
+            }
+        }
+    }
+
+</script>
+{% endblock %}
