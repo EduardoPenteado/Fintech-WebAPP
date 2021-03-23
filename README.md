@@ -16,8 +16,8 @@ high amount of information and the security that you need to provide to your use
     First, you will need to run the requirements.txt to install the Flask library  
     pip install -r requirements.txt  
 
-    After installing all the libraries, you must run "flask run" in your shell. The webapp will run in your local server  
-    In the directory templates, have all the html templates  
+    After installing all the libraries, you must run "flask run" in your shell. The webapp will run in your local server
+    In the directory templates, have all the html templates
     in the static directory, have all css files and images  
     The other files are python scripts to run the webapp  
         Encrypt.py is a script to encrypt password  
@@ -50,10 +50,12 @@ high amount of information and the security that you need to provide to your use
   
     Other functions like cash and credit where created to test the other funcionalities  
     
-    This is a picture of the user interface
+    This is a picture of the user interface  
+      
     ![alt text](https://github.com/EduardoPenteado/Fintech-WebAPP/blob/main/static/interface.png "Interface")
 
 
 5. Database
     This is a diagram of the database  
+      
     ![alt text](https://github.com/EduardoPenteado/Fintech-WebAPP/blob/main/static/database.png "Database")
