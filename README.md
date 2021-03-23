@@ -27,13 +27,13 @@ high amount of information and the security that you need to provide to your use
     When you start the application, you'll see a webpage describing a ficticional Fintech called ITO.
 
     So, you can open an online banking account, by registering the inputs:
-        Firstname: Only letters
-        Secondname: Only letters
-        ID: ID must be 11 numbers
-        email: A correct email input
-        password: must be at least one letter and 8 - 20 length
-        confirm password: confirm the password writed
-        phone: A valid phone (internacional)
+        ⋅⋅*Firstname: Only letters
+        ⋅⋅*Secondname: Only letters
+        ⋅⋅*ID: ID must be 11 numbers
+        ⋅⋅*email: A correct email input
+        ⋅⋅*password: must be at least one letter and 8 - 20 length
+        ⋅⋅*confirm password: confirm the password writed
+        ⋅⋅*phone: A valid phone (internacional)
 
      When you create an account, your password will be encrypted by the function in the archieve encrypt.py.
     Also, will generate a valid credit card number, a pass code to the card, and a cc number, by the python script in gen_pass.py
@@ -49,3 +49,4 @@ high amount of information and the security that you need to provide to your use
 
 5. Database
     This is a diagram of the database
+    ![alt text](https://github.com/EduardoPenteado/Fintech-WebAPP/static/database.png "Database")
